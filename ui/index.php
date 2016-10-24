@@ -1,1 +1,8 @@
-<script type="text/javascript">Test</script>
+<html>
+  <head>
+    <title>Welcome to Techniqed</title>
+  </head>
+  <body>
+    Hello
+  </body>
+</html>
