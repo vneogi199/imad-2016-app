@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/ui/:fileName', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
+app.get('/ui/test.php', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'test.php'));
 });
 
 app.get('/', function (req, res) {
