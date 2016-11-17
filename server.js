@@ -42,8 +42,16 @@ app.get('/test-db',function (req, res)   {
     });
 });
 
-app.get('/ui/style.css', function (req, res) {
+app.get('/style.css', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/mobile.jpeg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
+});
+
+app.get('/comp.jpeg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
 });
 
 var port = 8080 || process.env.port; // Use 8080 for local development because you might already have apache running on 80
