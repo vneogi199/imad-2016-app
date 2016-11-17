@@ -21,9 +21,12 @@ app.get('/', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-function aboutpg()  {
-    var aboutcontent='Hi';
-    return aboutcontent;
+function createTemplate()   {
+    var template = `
+    <html>
+    <head>
+    <title>
+    `;
 }
 
 function hash(input, salt) {
