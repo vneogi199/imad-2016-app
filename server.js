@@ -58,18 +58,7 @@ app.get('/ui/style.css', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-/*var port = 8080 || process.env.port; // Use 8080 for local development because you might already have apache running on 80
+var port = 8080 || process.env.port; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080 || process.env.port, function () {
 console.log(`IMAD course app listening on port ${port}!`);
-});*/
-var app     = express();
-
-app.set('port', (process.env.PORT || 5000));
-
-//For avoidong Heroku $PORT error
-app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
 });
