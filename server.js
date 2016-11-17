@@ -46,11 +46,11 @@ app.get('/style.css', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/mobile.jpeg', function (req, res) {
+app.get('/mobile.jpg', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
 });
 
-app.get('/comp.jpeg', function (req, res) {
+app.get('/comp.jpg', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
 });
 
