@@ -1,9 +1,11 @@
+//including all dependencies
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool;
+//var Pool = require('pg').Pool;
 var crypto = require('crypto');
 
+//config variable
 var config = {
     user: 'vneogi199',
     database: 'vneogi199',
@@ -12,22 +14,112 @@ var config = {
     password: process.env.DB_PASSWORD
 };
 
-var pool = new Pool(config);
+//var pool = new Pool(config);
 
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+
+//creation of resources for the application
+app.get('/style.css', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-function createTemplate()   {
-    var template = `
-    <html>
-    <head>
-    <title>
-    `;
+app.get('/mobile.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
+});
+
+app.get('/comp.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
+});
+
+app.get('/photo.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
+});
+
+var nav=`
+		<nav>
+	    	<ul>
+	   			<li>
+	   				<a href="/">Home</a>
+	   			</li>
+	   			<li>
+	   				<a href="android">Android</a>
+    			</li>
+	    		<li>
+	    			<a href="about">About Me</a>
+	    		</li>
+	   			<li>
+	   				<a href="contact">Contact Us</a>
+	   			</li>
+	   			<li>
+    				<a href="reg">Login/Register</a>
+    			</li>
+    		</ul>
+	    </nav>
+		`;
+function createTemplate(title, script, content)	{
+	var template=`
+		<!DOCTYPE html>	
+			<html>
+			    <head>
+			        <title>`+title+`</title>
+			        <link rel="stylesheet" href="style.css">
+			        `+script+`
+			    </head>
+			    <body>
+			    	`+content+`
+			    </body>
+			</html>
+			`;
+			return template;
 }
+function homeContent()	{
+	var content=nav+`
+	    <main>
+	   		<img src="comp.jpg"/>
+	   	</main>
+	   	<footer>
+	   		Welcome. This site has been created by Vinit Neogi.
+	   	</footer>
+	   	`;
+	   	return content;
+}
+
+function aboutContent()	{
+	var content=nav+`
+	    <main id="aboutMain">
+    		<img src="photo.jpg" id="photo" />
+    		<h1>Vinit Neogi</h1>
+    		<h2>Student at St. Francis Institute of Technology, Mumbai</h2>
+			<h3>Tech enthusiast</h3>
+			<h3>Interested in Android and Linux</h3>
+			<h3>Likes programming and developing apps</h3>
+    	</main>
+	   	`;
+	   	return content;
+}
+
+
+app.get('/', function (req, res) {
+res.send(createTemplate(
+		'Welcome to Techniqed',
+		`
+		<script type="text/javascript">
+			alert("Welcome to Techniqed.Created by Vinit Neogi.The images used on this website are used from various sources on the Internet.No copyright infringement intended.");
+      	</script>
+      	`,
+      	homeContent()
+	));
+});
+
+app.get('/about', function (req, res){
+    res.send(createTemplate('About Me', '', aboutContent()));
+});
+
+
+
+
 
 function hash(input, salt) {
     //creation of hash
@@ -40,9 +132,7 @@ app.get('/hash/:input',function(req,res)    {
     res.send(hashedString);
 });
 
-app.get('/about', function (req, res){
-    res.send(aboutpg());
-});
+
 
 app.get('/test-db',function (req, res)   {
     pool.query('SELECT * FROM article', function(err, result)  {
@@ -52,18 +142,6 @@ app.get('/test-db',function (req, res)   {
            res.send(JSON.stringify(result.rows));
        }
     });
-});
-
-app.get('/style.css', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-
-app.get('/mobile.jpg', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
-});
-
-app.get('/comp.jpg', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
 });
 
 var port = 8080 || process.env.port; // Use 8080 for local development because you might already have apache running on 80
