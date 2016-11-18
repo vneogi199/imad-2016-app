@@ -50,7 +50,7 @@ var nav=`
 	    			<a href="about">About Me</a>
 	    		</li>
 	   			<li>
-	   				<a href="contact">Contact Us</a>
+	   				<a href="contact">Contact Me</a>
 	   			</li>
 	   			<li>
     				<a href="reg">Login/Register</a>
@@ -107,9 +107,8 @@ function contactContent()	{
     		<img src="photo.jpg" id="photo" />
     		<h1>Vinit Neogi</h1>
     		<h2>You can e-mail me at : <a href="mailto:vneogi199@gmail.com" style="color: white;">vneogi199@gmail.com</a></h2>
-			<h3>Tech enthusiast</h3>
-			<h3>Interested in Android and Linux</h3>
-			<h3>Likes programming and developing apps</h3>
+			<h3>LinkedIn profile : <a href="https://www.linkedin.com/in/vinit-neogi-b6477812a">Vinit Neogi - LinkedIn</a></h3>
+			<h3>Gihub profile : <a href="https://github.com/vneogi199/">Vinit Neogi - Github</a></h3>
     	</main>
 	   	`;
 	   	return content;
