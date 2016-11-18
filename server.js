@@ -86,9 +86,24 @@ function homeContent()	{
 	   	return content;
 }
 
+
 function aboutContent()	{
 	var content=nav+`
 	    <main id="aboutMain">
+    		<img src="photo.jpg" id="photo" />
+    		<h1>Vinit Neogi</h1>
+    		<h2>Student at St. Francis Institute of Technology, Mumbai</h2>
+			<h3>Tech enthusiast</h3>
+			<h3>Interested in Android and Linux</h3>
+			<h3>Likes programming and developing apps</h3>
+    	</main>
+	   	`;
+	   	return content;
+}
+
+function contactContent()	{
+	var content=nav+`
+	    <main id="contactMain">
     		<img src="photo.jpg" id="photo" />
     		<h1>Vinit Neogi</h1>
     		<h2>Student at St. Francis Institute of Technology, Mumbai</h2>
@@ -117,7 +132,9 @@ app.get('/about', function (req, res){
     res.send(createTemplate('About Me', '', aboutContent()));
 });
 
-
+app.get('/contact', function (req, res){
+    res.send(createTemplate('Contact Us', '', contactContent()));
+});
 
 
 
