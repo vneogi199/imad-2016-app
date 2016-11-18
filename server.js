@@ -44,7 +44,7 @@ var nav=`
 	   				<a href="/">Home</a>
 	   			</li>
 	   			<li>
-	   				<a href="android">Android</a>
+	   				<a href="blog">Blog</a>
     			</li>
 	    		<li>
 	    			<a href="about">About Me</a>
