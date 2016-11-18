@@ -106,7 +106,7 @@ function contactContent()	{
 	    <main id="contactMain">
     		<img src="photo.jpg" id="photo" />
     		<h1>Vinit Neogi</h1>
-    		<h2>You can e-mail me at : <a href="mailto:vneogi199@gmail.com" /></h2>
+    		<h2>You can e-mail me at : <a href="mailto:vneogi199@gmail.com">vneogi199@gmail.com</a></h2>
 			<h3>Tech enthusiast</h3>
 			<h3>Interested in Android and Linux</h3>
 			<h3>Likes programming and developing apps</h3>
