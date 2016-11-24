@@ -114,6 +114,15 @@ function contactContent()	{
 	   	return content;
 }
 
+function blogContent()  {
+    var content=nav+`
+    <main id="blogMain">
+        <h1>Article1</h1>
+        <p>Text</p>
+    </main>
+    `;
+    return content;
+}
 
 app.get('/', function (req, res) {
 res.send(createTemplate(
@@ -135,6 +144,10 @@ app.get('/contact', function (req, res){
     res.send(createTemplate('Contact Us', '', contactContent()));
 });
 
+
+app.get('/blog', function(req,res)  {
+   res.send(createTemplate('Blog','', blogContent())); 
+});
 
 
 function hash(input, salt) {
