@@ -117,8 +117,12 @@ function contactContent()	{
 function blogContent()  {
     var content=nav+`
     <main id="blogMain">
-        <h1>Article1</h1>
-        <p>Text</p>
+        <h1>1 Million Redmi 3S, Redmi 3S Prime Smartphones Sold on Flipkart</h1>
+        <p>E-commerce platform Flipkart on Wednesday announced that it has sold on its portal more than one million units of Redmi 3S and Redmi 3S Prime -- premium metal-body smartphones with a large 4100mAh battery.</p>
+        <p>"Redmi 3S clearly stands out with its design and cutting-edge features at highly affordable price," added Ajay Yadav, VP-Mobiles, Flipkart.</p>
+        <p>The 5-inch Redmi 3S has 1.4GHz octa-core Qualcomm Snapdragon 430 processor, 2GB RAM and 16GB internal memory that can be expanded up to 128GB via micro-SD card.</p>
+        <p>The smartphone packs 13MP rear camera with PDAF, 5MP front camera and houses 4100mAh battery.</p>
+        <p>Redmi 3S Prime comes with 3GB RAM and 32GB internal storage.</p>
     </main>
     `;
     return content;
