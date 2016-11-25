@@ -2,8 +2,11 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-//var Pool = require('pg').Pool;
+var Pool = require('pg').Pool;
 var crypto = require('crypto');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+
 
 //config variable
 var config = {
@@ -14,7 +17,7 @@ var config = {
     password: process.env.DB_PASSWORD
 };
 
-//var pool = new Pool(config);
+var pool = new Pool(config);
 
 var app = express();
 app.use(morgan('combined'));
@@ -129,6 +132,8 @@ function blogContent()  {
 }
 
 function loginContent()	{
+    var registerName = req.body.registerName;
+    var registerEmail = req.body.registerEmail;
 	var content=nav+`
 	    <main id="loginMain">
     		<div id="registerArea">
