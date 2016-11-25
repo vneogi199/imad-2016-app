@@ -187,9 +187,6 @@ app.get('/blog', function(req,res)  {
    res.send(createTemplate('Blog','', blogContent())); 
 });
 
-app.get('/login', function (req, res) {
-  res.send(createTemplate('Register/Login','',loginContent()));
-});
 
 
 
