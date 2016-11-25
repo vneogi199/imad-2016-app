@@ -53,7 +53,7 @@ var nav=`
 	   				<a href="contact">Contact Me</a>
 	   			</li>
 	   			<li>
-    				<a href="reg">Login/Register</a>
+    				<a href="login">Login/Register</a>
     			</li>
     		</ul>
 	    </nav>
@@ -128,6 +128,36 @@ function blogContent()  {
     return content;
 }
 
+function loginContent()	{
+	var content=nav+`
+	    <main id="loginMain">
+    		<div id="registerArea">
+                Register Here: <br/><br/>
+                Enter your name: <br/>
+                <input type="text" name="registerName" maxlength="20" size="20" placeholder="Enter your name" /><br/>
+                Enter your E-Mail ID:<br/>
+                <input type="text" name="registerEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID" /><br/>
+                Enter your Password:<br/>
+                <input type="password" name="registerPassword" placeholder="Enter your Password" /><br/>
+                Re-Enter your Password:<br/>
+                <input type="password" name="registerCpassword" placeholder="Re-Enter your Password" /><br/><br/>
+                <input type="submit" name="registerSubmit" value="Register"/>
+    		</div>
+    		<hr width="400" align="center" />
+    		<div id="loginArea">
+                Login Here: <br/><br/>
+                Enter your E-Mail ID:<br/>
+                <input type="text" name="loginEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID" /><br/>
+                Enter your Password:<br/>
+                <input type="password" name="loginPassword" placeholder="Enter your Password" /><br/><br/>
+                <input type="submit" name="loginSubmit" value="Submit"/>
+    		</div>
+    	</main>
+	   	`;
+	   	return content;
+}
+
+
 app.get('/', function (req, res) {
 res.send(createTemplate(
 		'Welcome to Techniqed',
@@ -151,6 +181,10 @@ app.get('/contact', function (req, res){
 
 app.get('/blog', function(req,res)  {
    res.send(createTemplate('Blog','', blogContent())); 
+});
+
+app.get('/login', function (req, res)	{
+	res.send(createTemplate('Register/Login','',loginContent()));
 });
 
 
