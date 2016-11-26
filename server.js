@@ -132,6 +132,7 @@ function createTemplateNew (data) {
           <link href="/ui/style.css" rel="stylesheet" />
       </head> 
       <body>
+      `+nav+`
           <div class="container">
               <div>
                   <a href="/">Home</a>
