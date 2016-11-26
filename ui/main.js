@@ -1,29 +1,17 @@
+
 function loadLoginForm () {
     var loginHtml = `
-        <main id="loginMain">
-    		<div id="registerArea">
-                Register Here: <br/><br/>
-                Enter your E-Mail ID:<br/>
-                <input type="text" name="registerEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID" id="registerEmail"/><br/>
-                Enter your Password:<br/>
-                <input type="password" name="registerPassword" placeholder="Enter your Password" id="registerPassword"/><br/><br/>
-                <input type="submit" name="registerSubmit" value="Register" id="registerSubmit"/>
-    		</div>
-    		<hr width="400" align="center" />
-    		<div id="loginArea">
-                Login Here: <br/><br/>
-                Enter your E-Mail ID:<br/>
-                <input type="text" name="loginEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID"  id="loginEmail"/><br/>
-                Enter your Password:<br/>
-                <input type="password" name="loginPassword" placeholder="Enter your Password" id="loginPassword" /><br/><br/>
-                <input type="submit" name="loginSubmit" value="Submit" id="loginSubmit"/>
-    		</div>
-</main>
+        <h3>Login/Register to unlock awesome features</h3>
+        <input type="text" id="username" placeholder="username" />
+        <input type="password" id="password" />
+        <br/><br/>
+        <input type="submit" id="login_btn" value="Login" />
+        <input type="submit" id="register_btn" value="Register" />
         `;
     document.getElementById('login_area').innerHTML = loginHtml;
     
     // Submit username/password to login
-    var submit = document.getElementById('loginSubmit');
+    var submit = document.getElementById('login_btn');
     submit.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
@@ -49,8 +37,8 @@ function loadLoginForm () {
         };
         
         // Make the request
-        var username = document.getElementById('loginEmail').value;
-        var password = document.getElementById('loginPassword').value;
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
         request.open('POST', '/login', true);
@@ -60,7 +48,7 @@ function loadLoginForm () {
         
     };
     
-    var register = document.getElementById('registerSubmit');
+    var register = document.getElementById('register_btn');
     register.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
@@ -80,8 +68,8 @@ function loadLoginForm () {
         };
         
         // Make the request
-        var username = document.getElementById('registerEmail').value;
-        var password = document.getElementById('registerPassword').value;
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
         request.open('POST', '/create-user', true);
@@ -131,10 +119,10 @@ function loadArticles () {
                     <a href="/articles/${articleData[i].title}">${articleData[i].heading}</a>
                     (${articleData[i].date.split('T')[0]})</li>`;
                 }
-                content += "</ul>";
+                content += "</ul>"
                 articles.innerHTML = content;
             } else {
-                articles.innerHTML('Oops! Could not load all articles!');
+                articles.innerHTML('Oops! Could not load all articles!')
             }
         }
     };
