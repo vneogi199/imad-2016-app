@@ -304,7 +304,7 @@ app.get('/logout', function (req, res) {
    res.send(`
     <html>
     <head>
-        <link type="text/css" href"/ui/style.css">
+        <link type="text/css" href="/ui/style.css">
     </head>
     <body>
         <div class="container">
