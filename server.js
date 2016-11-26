@@ -115,7 +115,7 @@ function blogContent()  {
                 </div>
                 <div class="footer">
                 </div>
-                <script type="text/javascript" src="/ui/main.js">
+                <script type="text/javascript" src="/ui/blog.js">
                 </script>
             </body>
         </html>
