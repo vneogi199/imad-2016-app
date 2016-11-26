@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var config = {
-    user: 'vneogi199',
-    database: 'vneogi199',
+    user: 'coco98',
+    database: 'coco98',
     host: 'db.imad.hasura-app.io',
-    port: 5432,
+    port: '5432',
     password: process.env.DB_PASSWORD
 };
 
@@ -116,7 +116,6 @@ function contactContent() {
       return content;
 }
 
-
 function createTemplate (data) {
     var title = data.title;
     var date = data.date;
@@ -163,8 +162,36 @@ function createTemplate (data) {
 }
 
 app.get('/', function (req, res) {
+res.send(createTemplate(
+    'Welcome to Techniqed',
+    `
+    <script type="text/javascript">
+      alert("Welcome to Techniqed.Created by Vinit Neogi.The images used on this website are used from various sources on the Internet.No copyright infringement intended.");
+        </script>
+        `,
+        homeContent()
+  ));
+});
+
+app.get('/about', function (req, res){
+    res.send(createTemplate('About Me', '', aboutContent()));
+});
+
+app.get('/contact', function (req, res){
+    res.send(createTemplate('Contact Us', '', contactContent()));
+});
+
+
+app.get('/blog', function(req,res)  {
+   res.send(createTemplate('Blog','', blogContent())); 
+});
+
+
+app.get('/login1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
+
 
 
 function hash (input, salt) {
