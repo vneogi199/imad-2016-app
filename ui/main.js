@@ -1,6 +1,6 @@
 function loadLoginForm () {
     var loginHtml = `
-        <h3>Login/Register to unlock awesome features</h3>
+        <h1>Login/Register on Techniqed!</h1>
         Enter your Username:<input type="text" id="username" placeholder="Enter Username" /><br/><br/>
         Enter Password:<input type="password" id="password" /><br/>
         <br/><br/>
