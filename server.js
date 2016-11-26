@@ -99,10 +99,10 @@ function blogContent()  {
                 <nav>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="about">About Me</a></li>
-                        <li><a href="contact">Contact Me</a></li>
-                        <li><a href="login">Login/Register</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/about">About Me</a></li>
+                        <li><a href="/contact">Contact Me</a></li>
+                        <li><a href="/login">Login/Register</a></li>
                     </ul>
                 </nav>
                 <div id="login_area">
