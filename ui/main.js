@@ -49,7 +49,7 @@ function loadLoginForm () {
     
     var register = document.getElementById('register_btn');
     register.onclick = function () {
-        if((document.getElementById('username').value || document.getElementById('password').value === null)){
+        if((document.getElementById('username').value.length===0 || document.getElementById('password').value.lenghth===0)){
             alert("Empty form cannot be submitted. Please fill the form properly to continue.");
             return false;
         }
