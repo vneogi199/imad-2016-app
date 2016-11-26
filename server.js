@@ -22,6 +22,101 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
 }));
 
+//creation of resources for the application
+app.get('/style.css', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/mobile.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
+});
+
+app.get('/comp.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
+});
+
+app.get('/photo.jpg', function (req, res) {
+res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
+});
+
+var nav=`
+    <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="blog">Blog</a>
+          </li>
+          <li>
+            <a href="about">About Me</a>
+          </li>
+          <li>
+            <a href="contact">Contact Me</a>
+          </li>
+          <li>
+            <a href="login">Login/Register</a>
+          </li>
+        </ul>
+      </nav>
+    `;
+function createTemplate(title, script, content) {
+  var template=`
+    <!DOCTYPE html> 
+      <html>
+          <head>
+              <title>`+title+`</title>
+              <link rel="stylesheet" href="style.css">
+              `+script+`
+          </head>
+          <body>
+            `+content+`
+          </body>
+      </html>
+      `;
+      return template;
+}
+function homeContent()  {
+  var content=nav+`
+      <main>
+        <img src="comp.jpg"/>
+      </main>
+      <footer>
+        Welcome. This site has been created by Vinit Neogi.
+      </footer>
+      `;
+      return content;
+}
+
+
+function aboutContent() {
+  var content=nav+`
+      <main id="aboutMain">
+        <img src="photo.jpg" id="photo" />
+        <h1>Vinit Neogi</h1>
+        <h2>Student at St. Francis Institute of Technology, Mumbai</h2>
+      <h3>Tech enthusiast</h3>
+      <h3>Interested in Android and Linux</h3>
+      <h3>Likes programming and developing apps</h3>
+      </main>
+      `;
+      return content;
+}
+
+function contactContent() {
+  var content=nav+`
+      <main id="contactMain">
+        <img src="photo.jpg" id="photo" />
+        <h1>Vinit Neogi</h1>
+        <h2>You can e-mail me at : <a href="mailto:vneogi199@gmail.com" style="color: white;">vneogi199@gmail.com</a></h2>
+      <h3>My LinkedIn profile : <a href="https://www.linkedin.com/in/vinit-neogi-b6477812a"  style="color: white;">Vinit Neogi - LinkedIn</a></h3>
+      <h3>My Gihub profile : <a href="https://github.com/vneogi199/" style="color: white;">Vinit Neogi - Github</a></h3>
+      </main>
+      `;
+      return content;
+}
+
+
 function createTemplate (data) {
     var title = data.title;
     var date = data.date;
