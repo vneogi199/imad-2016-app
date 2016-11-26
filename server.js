@@ -39,6 +39,13 @@ app.get('/photo.jpg', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
 });
 
+var userSessionInfo;
+if(req.session.auth) {
+    userSessionInfo='<a href="/login">Logout</a>';
+}
+else  {
+    userSessionInfo='<a href="/login">Login/Register</a>';
+}
 
 var nav=`
     <nav>
@@ -56,7 +63,7 @@ var nav=`
             <a href="/contact">Contact Me</a>
           </li>
           <li>
-            <a href="/login">Login/Register</a>
+          `+userSessionInfo`+
           </li>
         </ul>
       </nav>
