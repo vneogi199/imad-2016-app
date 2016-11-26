@@ -151,7 +151,6 @@ function createTemplateNew (data) {
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-    
     var htmlTemplate = `
     <html>
       <head>
@@ -174,7 +173,8 @@ function createTemplateNew (data) {
                 ${content}
               </div>
               <hr/>
-              <h4>Comments</h4>
+              <h4>Comments.</h4>
+              <h4> Only logged in users can comment</h4>
               <div id="comment_form">
               </div>
               <div id="comments">
