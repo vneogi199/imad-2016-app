@@ -38,14 +38,17 @@ res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
 app.get('/photo.jpg', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
 });
+function checkSession() {
+    var userSessionInfo;
+    if(session) {
+        userSessionInfo='<a href="/login">Logout</a>';
+    }
+    else  {
+        userSessionInfo='<a href="/login">Login/Register</a>';
+    }
+    return userSessionInfo;
+}
 
-var userSessionInfo;
-if(session) {
-    userSessionInfo='<a href="/login">Logout</a>';
-}
-else  {
-    userSessionInfo='<a href="/login">Login/Register</a>';
-}
 
 var nav=`
     <nav>
@@ -63,7 +66,7 @@ var nav=`
             <a href="/contact">Contact Me</a>
           </li>
           <li>
-          `+userSessionInfo`+
+          `+checkSession()`+
           </li>
         </ul>
       </nav>
