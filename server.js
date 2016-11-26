@@ -88,6 +88,40 @@ function homeContent()  {
       return content;
 }
 
+function blogContent()  {
+    var content=`
+    <!doctype html>
+        <html>
+            <head>
+                <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            <body>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="about">About Me</a></li>
+                        <li><a href="contact">Contact Me</a></li>
+                        <li><a href="login">Login/Register</a></li>
+                    </ul>
+                </nav>
+                <div id="login_area">
+                    <center>Loading login status...</center>
+                </div>
+                <hr/>
+                <h3>My Articles</h3>
+                <div id="articles">
+                    <center>Loading articles...</center>
+                </div>
+                <div class="footer">
+                </div>
+                <script type="text/javascript" src="/ui/main.js">
+                </script>
+            </body>
+        </html>
+    `;
+    return content;
+}
 
 function aboutContent() {
   var content=nav+`
@@ -180,7 +214,7 @@ app.get('/contact', function (req, res){
 
 
 app.get('/blog', function(req,res)  {
-   res.send(createTemplate('Blog','', blogContent())); 
+   res.send(blogContent()); 
 });
 
 
