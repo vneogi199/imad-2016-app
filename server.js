@@ -93,7 +93,7 @@ function blogContent()  {
     <!doctype html>
         <html>
             <head>
-                <link href="/ui/style.css" rel="stylesheet">
+               <link rel="stylesheet" href="style.css">
             </head>
             <body>
                 <nav>
@@ -106,10 +106,10 @@ function blogContent()  {
                     </ul>
                 </nav>
                 <h2>My Articles</h2>
-                <div id="articles">
-                    <center>Loading articles...</center>
-                </div>
-                <div class="footer">
+                <div class="container">
+                    <div id="articles">
+                        <center>Loading articles...</center>
+                    </div>
                 </div>
                 <script type="text/javascript" src="/ui/blog.js">
                 </script>
