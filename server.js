@@ -302,18 +302,28 @@ app.get('/check-login', function (req, res) {
 app.get('/logout', function (req, res) {
    delete req.session.auth;
    res.send(`
-    <html>
-    <head>
-        <link type="text/css" href="/ui/style.css">
-    </head>
-    <body>
-        <div class="container">
-            Logged out!
-            <br/><br/>
-            <a href="/">Back to home</a>
-        </div>
-    </body>
-    </html>
+        <!doctype html>
+        <html>
+            <head>
+               <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/about">About Me</a></li>
+                        <li><a href="/contact">Contact Me</a></li>
+                        <li><a href="/login">Login/Register</a></li>
+                    </ul>
+                </nav>
+                <div class="container">
+                    <h2>Logged out!</h2>
+                    <br/><br/>
+                    <a href="/">Back to home</a>
+                </div>
+            </body>
+        </html>
     `);
 });
 
