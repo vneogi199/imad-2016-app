@@ -105,11 +105,7 @@ function blogContent()  {
                         <li><a href="/login">Login/Register</a></li>
                     </ul>
                 </nav>
-                <div id="login_area">
-                    <center>Loading login status...</center>
-                </div>
-                <hr/>
-                <h3>My Articles</h3>
+                <h2>My Articles</h2>
                 <div id="articles">
                     <center>Loading articles...</center>
                 </div>
