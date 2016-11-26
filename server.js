@@ -116,7 +116,7 @@ function contactContent() {
       return content;
 }
 
-function createTemplate (data) {
+function createTemplateNew (data) {
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
