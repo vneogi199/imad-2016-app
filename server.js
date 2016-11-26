@@ -55,7 +55,12 @@ var nav=`
             <a href="/contact">Contact Me</a>
           </li>
           <li>
+          if(req.session.auth) {
             <a href="/login">Login/Register</a>
+          }
+          else  {
+              <a href="/login">Login/Register</a>
+          }
           </li>
         </ul>
       </nav>
