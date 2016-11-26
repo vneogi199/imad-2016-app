@@ -93,7 +93,7 @@ function blogContent()  {
     <!doctype html>
         <html>
             <head>
-                <link href="/ui/style.css" rel="stylesheet" />
+                <link href="/ui/style.css" rel="stylesheet">
             </head>
             <body>
                 <nav>
