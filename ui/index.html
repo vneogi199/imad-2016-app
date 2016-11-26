@@ -1,37 +1,31 @@
-<!DOCTYPE html>	
+<!doctype html>
 <html>
     <head>
-        <title>Welcome to Techniqed</title>
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript">
-        	alert("Welcome to Techniqed. Created by Vinit Neogi. The images used on this website are used from various sources on the Internet. No copyright infringement intended.");
-        </script>
+        <link href="/ui/style.css" rel="stylesheet" />
     </head>
     <body>
-    	<nav>
-    		<ul>
-    			<li>
-    				<a href="/">Home</a>
-    			</li>
-    			<li>
-    				<a href="android">Android</a>
-    			</li>
-    			<li>
-    				<a href="about">About Me</a>
-    			</li>
-    			<li>
-    				<a href="contact">Contact Us</a>
-    			</li>
-    			<li>
-    				<a href="reg">Login/Register</a>
-    			</li>
-    		</ul>
-    	</nav>
-    	<main>
-    		<img src="comp.jpg"/>
-    	</main>
-    	<footer>
-    		Welcome. This site has been created by Vinit Neogi
-    	</footer>
+        <div class="container">
+            <div class="center">
+                <img id='madi' src="https://pbs.twimg.com/profile_images/794285789240623104/Cyio02cd_400x400.jpg" class="img-medium"/>
+            </div>
+            <h3>About Me</h3>
+            <div>
+                Hi. My name is Tanmai Gopal<br/>
+                I work at Hasura
+            </div>
+            <hr/>
+            <div id="login_area">
+                <center>Loading login status...</center>
+            </div>
+            <hr/>
+            <h3>My Articles</h3>
+            <div id="articles">
+                <center>Loading articles...</center>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+        <script type="text/javascript" src="/ui/main.js">
+        </script>
     </body>
 </html>
