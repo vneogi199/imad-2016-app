@@ -38,6 +38,10 @@ function loadLoginForm () {
         // Make the request
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
+        if(username || password === '')  {
+            alert("Please enter values to continue");
+            return false;
+        }
         console.log(username);
         console.log(password);
         request.open('POST', '/login', true);
