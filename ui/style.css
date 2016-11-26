@@ -95,6 +95,7 @@ h1,h2,h3 {
    color:white;
 }
 .container  {
+    min-height: 550px;
 	width: 920px;
 	color: white;
 	background-color: rgba(19,130,183,0.4);
