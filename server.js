@@ -105,8 +105,8 @@ function blogContent()  {
                         <li><a href="/login">Login/Register</a></li>
                     </ul>
                 </nav>
-                <h2>My Articles</h2>
                 <div class="container">
+                    <h2>My Articles</h2>
                     <div id="articles">
                         <center>Loading articles...</center>
                     </div>
