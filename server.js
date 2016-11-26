@@ -187,7 +187,7 @@ app.get('/blog', function(req,res)  {
 });
 
 
-app.get('/login1', function (req, res) {
+app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
