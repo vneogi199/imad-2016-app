@@ -12,10 +12,6 @@ function loadLoginForm () {
     // Submit username/password to login
     var submit = document.getElementById('login_btn');
     submit.onclick = function () {
-        if(username || password === '')  {
-            alert("Please enter values to continue");
-            return false;
-        }
         // Create a request object
         var request = new XMLHttpRequest();
         
@@ -42,10 +38,6 @@ function loadLoginForm () {
         // Make the request
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        if(username || password === '')  {
-            alert("Please enter values to continue");
-            return false;
-        }
         console.log(username);
         console.log(password);
         request.open('POST', '/login', true);
@@ -57,8 +49,8 @@ function loadLoginForm () {
     
     var register = document.getElementById('register_btn');
     register.onclick = function () {
-        if(username || password === '')  {
-            alert("Please enter values to continue");
+        if(document.getElementById('username').value || document.getElementById('password').value === ''){
+            alert("Empty form cannot be submitted. Please fill the form properly to continue.");
             return false;
         }
         // Create a request object
@@ -77,7 +69,6 @@ function loadLoginForm () {
               }
           }
         };
-        
         // Make the request
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
