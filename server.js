@@ -46,16 +46,16 @@ var nav=`
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="blog">Blog</a>
+            <a href="/blog">Blog</a>
           </li>
           <li>
-            <a href="about">About Me</a>
+            <a href="/about">About Me</a>
           </li>
           <li>
-            <a href="contact">Contact Me</a>
+            <a href="/contact">Contact Me</a>
           </li>
           <li>
-            <a href="login">Login/Register</a>
+            <a href="/login">Login/Register</a>
           </li>
         </ul>
       </nav>
