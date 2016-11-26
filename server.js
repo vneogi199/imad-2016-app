@@ -40,7 +40,7 @@ res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
 });
 
 var userSessionInfo;
-if(req.session.auth) {
+if(session) {
     userSessionInfo='<a href="/login">Logout</a>';
 }
 else  {
@@ -277,6 +277,7 @@ app.post('/login', function (req, res) {
                 
                 // Set the session
                 req.session.auth = {userId: result.rows[0].id};
+                session=req.session.auth;
                 // set cookie with a session id
                 // internally, on the server side, it maps the session id to an object
                 // { auth: {userId }}
