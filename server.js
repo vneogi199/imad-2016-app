@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var config = {
-    user: 'vneogi199',
-    database: 'vneogi199',
+    user: 'coco98',
+    database: 'coco98',
     host: 'db.imad.hasura-app.io',
-    port: 5432,
+    port: '5432',
     password: process.env.DB_PASSWORD
 };
 
@@ -22,191 +22,67 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
 }));
 
-//creation of resources for the application
-app.get('/style.css', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-
-app.get('/mobile.jpg', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'mobile.jpg'));
-});
-
-app.get('/comp.jpg', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'comp.jpg'));
-});
-
-app.get('/photo.jpg', function (req, res) {
-res.sendFile(path.join(__dirname, 'ui', 'photo.jpg'));
-});
-
-var nav=`
-    <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="blog">Blog</a>
-          </li>
-          <li>
-            <a href="about">About Me</a>
-          </li>
-          <li>
-            <a href="contact">Contact Me</a>
-          </li>
-          <li>
-            <a href="login">Login/Register</a>
-          </li>
-        </ul>
-      </nav>
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    var htmlTemplate = `
+    <html>
+      <head>
+          <title>
+              ${title}
+          </title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link href="/ui/style.css" rel="stylesheet" />
+      </head> 
+      <body>
+          <div class="container">
+              <div>
+                  <a href="/">Home</a>
+              </div>
+              <hr/>
+              <h3>
+                  ${heading}
+              </h3>
+              <div>
+                  ${date.toDateString()}
+              </div>
+              <div>
+                ${content}
+              </div>
+              <hr/>
+              <h4>Comments</h4>
+              <div id="comment_form">
+              </div>
+              <div id="comments">
+                <center>Loading comments...</center>
+              </div>
+          </div>
+          <script type="text/javascript" src="/ui/article.js"></script>
+      </body>
+    </html>
     `;
-function createTemplate(title, script, content) {
-  var template=`
-    <!DOCTYPE html> 
-      <html>
-          <head>
-              <title>`+title+`</title>
-              <link rel="stylesheet" href="style.css">
-              `+script+`
-          </head>
-          <body>
-            `+content+`
-          </body>
-      </html>
-      `;
-      return template;
+    return htmlTemplate;
 }
-function homeContent()  {
-  var content=nav+`
-      <main>
-        <img src="comp.jpg"/>
-      </main>
-      <footer>
-        Welcome. This site has been created by Vinit Neogi.
-      </footer>
-      `;
-      return content;
-}
-
-
-function aboutContent() {
-  var content=nav+`
-      <main id="aboutMain">
-        <img src="photo.jpg" id="photo" />
-        <h1>Vinit Neogi</h1>
-        <h2>Student at St. Francis Institute of Technology, Mumbai</h2>
-      <h3>Tech enthusiast</h3>
-      <h3>Interested in Android and Linux</h3>
-      <h3>Likes programming and developing apps</h3>
-      </main>
-      `;
-      return content;
-}
-
-function contactContent() {
-  var content=nav+`
-      <main id="contactMain">
-        <img src="photo.jpg" id="photo" />
-        <h1>Vinit Neogi</h1>
-        <h2>You can e-mail me at : <a href="mailto:vneogi199@gmail.com" style="color: white;">vneogi199@gmail.com</a></h2>
-      <h3>My LinkedIn profile : <a href="https://www.linkedin.com/in/vinit-neogi-b6477812a"  style="color: white;">Vinit Neogi - LinkedIn</a></h3>
-      <h3>My Gihub profile : <a href="https://github.com/vneogi199/" style="color: white;">Vinit Neogi - Github</a></h3>
-      </main>
-      `;
-      return content;
-}
-
-function blogContent()  {
-    var content=nav+`
-    <main id="blogMain">
-        <h1>1 Million Redmi 3S, Redmi 3S Prime Smartphones Sold on Flipkart</h1>
-        <p>E-commerce platform Flipkart on Wednesday announced that it has sold on its portal more than one million units of Redmi 3S and Redmi 3S Prime -- premium metal-body smartphones with a large 4100mAh battery.</p>
-        <p>"Redmi 3S clearly stands out with its design and cutting-edge features at highly affordable price," added Ajay Yadav, VP-Mobiles, Flipkart.</p>
-        <p>The 5-inch Redmi 3S has 1.4GHz octa-core Qualcomm Snapdragon 430 processor, 2GB RAM and 16GB internal memory that can be expanded up to 128GB via micro-SD card.</p>
-        <p>The smartphone packs 13MP rear camera with PDAF, 5MP front camera and houses 4100mAh battery.</p>
-        <p>Redmi 3S Prime comes with 3GB RAM and 32GB internal storage.</p>
-    </main>
-    `;
-    return content;
-}
-
-function loginContent() {
-    var registerName = req.body.registerName;
-    var registerEmail = req.body.registerEmail;
-  var content=nav+`
-      <main id="loginMain">
-        <div id="registerArea">
-                Register Here: <br/><br/>
-                Enter your name: <br/>
-                <input type="text" name="registerName" maxlength="20" size="20" placeholder="Enter your name" /><br/>
-                Enter your E-Mail ID:<br/>
-                <input type="text" name="registerEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID" /><br/>
-                Enter your Password:<br/>
-                <input type="password" name="registerPassword" placeholder="Enter your Password" /><br/>
-                Re-Enter your Password:<br/>
-                <input type="password" name="registerCpassword" placeholder="Re-Enter your Password" /><br/><br/>
-                <input type="submit" name="registerSubmit" value="Register"/>
-        </div>
-        <hr width="400" align="center" />
-        <div id="loginArea">
-                Login Here: <br/><br/>
-                Enter your E-Mail ID:<br/>
-                <input type="text" name="loginEmail" maxlength="20" size="20" placeholder="Enter your E-Mail ID" /><br/>
-                Enter your Password:<br/>
-                <input type="password" name="loginPassword" placeholder="Enter your Password" /><br/><br/>
-                <input type="submit" name="loginSubmit" value="Submit"/>
-        </div>
-      </main>
-      `;
-      return content;
-}
-
-app.get('/check-login', function (req, res) {
-   if (req.session && req.session.auth && req.session.auth.userId) {
-       // Load the user object
-       pool.query('SELECT * FROM "user" WHERE id = $1', [req.session.auth.userId], function (err, result) {
-           if (err) {
-              res.status(500).send(err.toString());
-           } else {
-              res.send(result.rows[0].username);    
-           }
-       });
-   } else {
-       res.status(400).send('You are not logged in');
-   }
-});
 
 app.get('/', function (req, res) {
-res.send(createTemplate(
-    'Welcome to Techniqed',
-    `
-    <script type="text/javascript">
-      alert("Welcome to Techniqed.Created by Vinit Neogi.The images used on this website are used from various sources on the Internet.No copyright infringement intended.");
-        </script>
-        `,
-        homeContent()
-  ));
-});
-
-app.get('/about', function (req, res){
-    res.send(createTemplate('About Me', '', aboutContent()));
-});
-
-app.get('/contact', function (req, res){
-    res.send(createTemplate('Contact Us', '', contactContent()));
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 
-app.get('/blog', function(req,res)  {
-   res.send(createTemplate('Blog','', blogContent())); 
+function hash (input, salt) {
+    // How do we create a hash?
+    var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+    return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$');
+}
+
+
+app.get('/hash/:input', function(req, res) {
+   var hashedString = hash(req.params.input, 'this-is-some-random-string');
+   res.send(hashedString);
 });
-
-
-app.get('/login1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'login.html'));
-});
-
-
 
 app.post('/create-user', function (req, res) {
    // username, password
